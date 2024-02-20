@@ -1,0 +1,21 @@
+:root {
+  --main-font: "Montserrat", sans-serif;
+  --second-font: "Open Sans", sans-serif;
+  --logo: "DM Serif Display", serif;
+
+  --dark-color1: #070f2b;
+  --dark-color2: #1b1a55;
+  --dark-color3: #535c91;
+  --dark-color4: #9290c3;
+
+  --light-color1: #80bcbd;
+  --light-color2: #aad9bb;
+  --light-color3: #d5f0c1;
+  --light-color4: #f9f7c9;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--main-font);
+}
