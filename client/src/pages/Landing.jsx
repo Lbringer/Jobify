@@ -6,7 +6,7 @@ const Landing = () => {
     <Wrapper>
       <div className="con">
         <h1>
-          Job <span>tracking</span> Made Easy..
+          Job <span>Tracking</span> Made Easy..
         </h1>
         <p>
           Best place to get notifications about new jobs and let others known if
@@ -59,6 +59,7 @@ const Wrapper = styled.section`
       justify-content: space-between;
       align-items: center;
       margin-top: 20px;
+      margin-bottom: 100px;
       .btn {
         text-decoration: none;
         color: var(--dark-bg);

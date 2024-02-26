@@ -4,13 +4,24 @@ import styled from "styled-components";
 const Error = () => {
   //Gives us more info abt the error and this works with the errorElement
   const error = useRouteError();
-  return (
-    <Wrapper>
-      <div className="code">{error.status}</div>
-      <div>{error.data}</div>
-      <Link to="/dashboard">Back home</Link>
-    </Wrapper>
-  );
+
+  if (error.status == 404) {
+    return (
+      <Wrapper>
+        <div className="code">{error.status}</div>
+        <div>{error.data}</div>
+        <div>Error</div>
+        <Link to="/dashboard">Back home</Link>
+      </Wrapper>
+    );
+  } else {
+    return (
+      <Wrapper>
+        <div className="code">Error!!</div>
+        <Link to="/dashboard">Back home</Link>
+      </Wrapper>
+    );
+  }
 };
 
 const Wrapper = styled.section`
