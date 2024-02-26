@@ -1,47 +1,50 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FormRow } from "../components";
+import { FormRow, Nav_Landing } from "../components";
 
 const Login = () => {
   return (
-    <Wrapper>
-      <form action="#">
-        <h4>
-          Hi, <span>Welcome Back</span>
-        </h4>
-        <div className="form-col">
-          <FormRow
-            type="email"
-            name="email"
-            labelText="Email"
-            defaultValue="g@gmail.com"
-          />
-        </div>
-        <div className="form-col">
-          <FormRow
-            type="password"
-            name="password"
-            labelText="Password"
-            defaultValue="password"
-          />
-        </div>
-        <div className="con">
-          <button type="submit">Login</button>
-        </div>
-        <div className="con">
-          <button type="button" className="tryBtn">
-            Try out the site
-          </button>
-        </div>
+    <>
+      <Nav_Landing />
+      <Wrapper>
+        <form action="#">
+          <h4>
+            Hi, <span>Welcome Back</span>
+          </h4>
+          <div className="form-col">
+            <FormRow
+              type="email"
+              name="email"
+              labelText="Email"
+              defaultValue="g@gmail.com"
+            />
+          </div>
+          <div className="form-col">
+            <FormRow
+              type="password"
+              name="password"
+              labelText="Password"
+              defaultValue="password"
+            />
+          </div>
+          <div className="con">
+            <button type="submit">Login</button>
+          </div>
+          <div className="con">
+            <button type="button" className="tryBtn">
+              Try out the site
+            </button>
+          </div>
 
-        <p>
-          Not a member?
-          <Link className="link" to="/register">
-            Register
-          </Link>
-        </p>
-      </form>
-    </Wrapper>
+          <p>
+            Not a member?
+            <Link className="link" to="/register">
+              Register
+            </Link>
+          </p>
+        </form>
+      </Wrapper>
+    </>
   );
 };
 
@@ -76,6 +79,7 @@ const Wrapper = styled.section`
       width: 100%;
       padding: 0 0.5rem 0 0.5rem;
       box-sizing: border-box;
+
       button {
         width: 100%;
         padding: 1rem 0.3rem 0.8rem 0.3rem;

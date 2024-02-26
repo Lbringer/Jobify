@@ -14,7 +14,7 @@ const Wrapper = styled.nav`
   width: 100vw;
   height: 10vh;
   background-color: var(--dark-bg);
-  padding: 2vw 7vw 0 7vw;
+  padding: 2vw 6vw 0 6vw;
   box-sizing: border-box;
   display: flex;
   align-items: center;

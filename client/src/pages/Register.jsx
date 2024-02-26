@@ -1,56 +1,59 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { FormRow } from "../components";
+import { FormRow, Nav_Landing } from "../components";
 
 const Register = () => {
   return (
-    <Wrapper>
-      <form action="#">
-        <h4>
-          Hi, <span>Welcome</span>
-        </h4>
-        <div className="form-col">
-          <FormRow
-            type="text"
-            name="name"
-            labelText="Name"
-            defaultValue="Aditya Garimella"
-          />
-        </div>
-        <div className="form-col">
-          <FormRow
-            type="text"
-            name="location"
-            labelText="Location"
-            defaultValue="India"
-          />
-          <FormRow
-            type="email"
-            name="email"
-            labelText="Email"
-            defaultValue="g@gmail.com"
-          />
-        </div>
-        <div className="form-col">
-          <FormRow
-            type="password"
-            name="password"
-            labelText="Password"
-            defaultValue="password"
-          />
-        </div>
-        <div className="con">
-          <button type="submit">Submit</button>
-        </div>
+    <>
+      <Nav_Landing />
+      <Wrapper>
+        <form action="#">
+          <h4>
+            Hi, <span>Welcome</span>
+          </h4>
+          <div className="form-col">
+            <FormRow
+              type="text"
+              name="name"
+              labelText="Name"
+              defaultValue="Aditya Garimella"
+            />
+          </div>
+          <div className="form-col">
+            <FormRow
+              type="text"
+              name="location"
+              labelText="Location"
+              defaultValue="India"
+            />
+            <FormRow
+              type="email"
+              name="email"
+              labelText="Email"
+              defaultValue="g@gmail.com"
+            />
+          </div>
+          <div className="form-col">
+            <FormRow
+              type="password"
+              name="password"
+              labelText="Password"
+              defaultValue="password"
+            />
+          </div>
+          <div className="con">
+            <button type="submit">Submit</button>
+          </div>
 
-        <p>
-          Already a member?
-          <Link className="link" to="/login">
-            Login
-          </Link>
-        </p>
-      </form>
-    </Wrapper>
+          <p>
+            Already a member?
+            <Link className="link" to="/login">
+              Login
+            </Link>
+          </p>
+        </form>
+      </Wrapper>
+    </>
   );
 };
 

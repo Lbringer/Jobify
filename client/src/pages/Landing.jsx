@@ -1,27 +1,31 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Nav_Landing } from "../components";
 
 const Landing = () => {
   return (
-    <Wrapper>
-      <div className="con">
-        <h1>
-          Job <span>Tracking</span> Made Easy..
-        </h1>
-        <p>
-          Best place to get notifications about new jobs and let others known if
-          you stumble on a job.
-        </p>
-        <div className="btn-con">
-          <Link to="/register" className="btn">
-            Register
-          </Link>
-          <Link to="/login" className="btn outline">
-            Login
-          </Link>
+    <>
+      <Nav_Landing />
+      <Wrapper>
+        <div className="con">
+          <h1>
+            Job <span>Tracking</span> Made Easy..
+          </h1>
+          <p>
+            Best place to get notifications about new jobs and let others known
+            if you stumble on a job.
+          </p>
+          <div className="btn-con">
+            <Link to="/register" className="btn">
+              Register
+            </Link>
+            <Link to="/login" className="btn outline">
+              Login
+            </Link>
+          </div>
         </div>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </>
   );
 };
 
