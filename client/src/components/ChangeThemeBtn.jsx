@@ -1,9 +1,15 @@
 import styled from "styled-components";
 import change from "../assets/images/changeTheme.svg";
+import { useDispatch } from "react-redux";
+import { TOGGLE_DARK_THEME } from "../redux/User/UserSlice";
 
 const ChangeThemeBtn = () => {
+  const dispatch = useDispatch();
+  const changeTheme = () => {
+    dispatch(TOGGLE_DARK_THEME());
+  };
   return (
-    <Wrapper>
+    <Wrapper onClick={changeTheme}>
       <img src={change} alt="change theme" />
     </Wrapper>
   );
