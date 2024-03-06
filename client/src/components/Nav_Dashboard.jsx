@@ -5,7 +5,7 @@ import ChangeThemeBtn from "./ChangeThemeBtn";
 import { useSelector } from "react-redux";
 
 const Nav_Dashboard = () => {
-  const user = useSelector((state) => state.user.name);
+  const userName = useSelector((state) => state.user.name);
   return (
     <Wrapper>
       <div className="logoAndtitle">
@@ -14,11 +14,11 @@ const Nav_Dashboard = () => {
       </div>
       <div className="themeaAndlogout">
         <ChangeThemeBtn />
-        {user == "" ? (
+        {userName == "" ? (
           <button className="btn outline">Login</button>
         ) : (
           <>
-            <div className="name">{user}</div>
+            <div className="name">{userName}</div>
             <button className="btn">Logout</button>
           </>
         )}
@@ -31,7 +31,7 @@ const Wrapper = styled.nav`
   width: 100vw;
   height: 10vh;
   background-color: var(--dark-bg);
-  padding: 2vw 3vw 0 3vw;
+  padding: 2vw 3vw 0 8vw;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -43,7 +43,7 @@ const Wrapper = styled.nav`
     h2 {
       margin: 0;
       color: var(--dark-font-color);
-      margin-left: 10rem;
+      margin-left: 14rem;
       font-weight: 400;
     }
   }
@@ -54,7 +54,7 @@ const Wrapper = styled.nav`
     .name {
       color: var(--dark-font-color);
       font-size: 0.9rem;
-      margin-left: 4rem;
+      margin-left: 3rem;
     }
     .btn {
       margin-left: 1rem;
