@@ -1,12 +1,5 @@
 :root {
   --font: "Poppins", sans-serif;
-
-  --dark-bg: #040d12;
-  --dark-font-color: #ffffff;
-  --dark-border-color: #4d4d4d;
-
-  --light-bg: #eef5ff;
-  --light-font-color: #176b87;
 }
 body {
   margin: 0;

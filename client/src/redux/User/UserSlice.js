@@ -1,18 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-
-const lightCSS = {
-  bg: "#eef5ff",
-  font: "#176b87",
-  accent: "#176b87",
-  menu: "#89B3C6",
-};
-
-const darkCSS = {
-  bg: "#040d12",
-  font: "#ffffff",
-  accent: "#4d4d4d",
-  menu: "#4d4d4d",
-};
+import { lightCSS, darkCSS } from "../../utils/colors";
 
 const initialState = {
   name: "Aditya",
