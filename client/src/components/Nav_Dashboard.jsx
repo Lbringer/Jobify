@@ -30,7 +30,7 @@ const Nav_Dashboard = () => {
 const Wrapper = styled.nav`
   width: 100vw;
   height: 10vh;
-  background-color: var(--dark-bg);
+  background-color: ${(props) => props.theme.bg};
   padding: 2vw 3vw 0 8vw;
   box-sizing: border-box;
   display: flex;
@@ -42,7 +42,7 @@ const Wrapper = styled.nav`
     align-items: center;
     h2 {
       margin: 0;
-      color: var(--dark-font-color);
+      color: ${(props) => props.theme.font};
       margin-left: 14rem;
       font-weight: 400;
     }
@@ -52,9 +52,10 @@ const Wrapper = styled.nav`
     display: flex;
     align-items: center;
     .name {
-      color: var(--dark-font-color);
+      color: ${(props) => props.theme.font};
       font-size: 0.9rem;
       margin-left: 3rem;
+      font-weight: 500;
     }
     .btn {
       margin-left: 1rem;
@@ -62,22 +63,22 @@ const Wrapper = styled.nav`
       padding: 0.5rem 0.3rem 0.5rem 0.3rem;
       border-radius: 8px;
       border: 0;
-      background-color: var(--dark-font-color);
+      background-color: ${(props) => props.theme.font};
       font-family: "Poppins", sans-serif;
-      color: var(--dark-bg);
+      color: ${(props) => props.theme.bg};
       font-weight: 600;
       cursor: pointer;
     }
     .outline {
-      background-color: var(--dark-bg);
-      color: var(--dark-font-color);
-      border: 1px solid var(--dark-font-color);
+      background-color: ${(props) => props.theme.bg};
+      color: ${(props) => props.theme.font};
+      border: 1px solid ${(props) => props.theme.font};
       font-weight: 400;
       transition: all 0.2s;
     }
     .outline:hover {
-      background-color: var(--dark-font-color);
-      color: var(--dark-bg);
+      background-color: ${(props) => props.theme.font};
+      color: ${(props) => props.theme.bg};
       font-weight: 600;
     }
   }

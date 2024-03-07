@@ -51,8 +51,8 @@ const Login = () => {
 const Wrapper = styled.section`
   width: 100vw;
   min-height: 90vh;
-  background-color: var(--dark-bg);
-  color: var(--dark-font-color);
+  background-color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.font};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,23 +85,23 @@ const Wrapper = styled.section`
         padding: 1rem 0.3rem 0.8rem 0.3rem;
         border-radius: 8px;
         border: 0;
-        background-color: var(--dark-font-color);
+        background-color: ${(props) => props.theme.font};
         font-family: "Poppins", sans-serif;
-        color: var(--dark-bg);
+        color: ${(props) => props.theme.bg};
         font-weight: 600;
         cursor: pointer;
         margin-top: 20px;
       }
       .tryBtn {
-        background-color: var(--dark-bg);
-        color: var(--dark-font-color);
-        border: 1px solid var(--dark-font-color);
-        font-weight: 400;
+        background-color: ${(props) => props.theme.bg};
+        color: ${(props) => props.theme.font};
+        border: 1px solid ${(props) => props.theme.font};
+        font-weight: 500;
         transition: all 0.2s;
       }
       .tryBtn:hover {
-        background-color: var(--dark-font-color);
-        color: var(--dark-bg);
+        background-color: ${(props) => props.theme.font};
+        color: ${(props) => props.theme.bg};
         font-weight: 600;
       }
     }
@@ -109,9 +109,10 @@ const Wrapper = styled.section`
       margin-bottom: 70px;
       font-size: 0.8rem;
       .link {
-        color: var(--dark-font-color);
+        color: ${(props) => props.theme.font};
         margin-left: 5px;
       }
+      font-weight: 500;
     }
   }
 `;

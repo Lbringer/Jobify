@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Nav_Landing } from "../components";
-
 const Landing = () => {
   return (
     <>
@@ -32,11 +31,11 @@ const Landing = () => {
 const Wrapper = styled.section`
   width: 100vw;
   min-height: 90vh;
-  background-color: var(--dark-bg);
+  background-color: ${(props) => props.theme.bg};
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--dark-font-color);
+  color: ${(props) => props.theme.font};
   text-align: center;
   .con {
     width: 60vw;
@@ -66,8 +65,8 @@ const Wrapper = styled.section`
       margin-bottom: 100px;
       .btn {
         text-decoration: none;
-        color: var(--dark-bg);
-        background-color: var(--dark-font-color);
+        color: ${(props) => props.theme.bg};
+        background-color: ${(props) => props.theme.font};
         font-size: 0.8rem;
         padding: 0.8rem 2rem 0.8rem 2rem;
         display: flex;
@@ -77,15 +76,15 @@ const Wrapper = styled.section`
         border-radius: 5px;
       }
       .outline {
-        color: var(--dark-font-color);
-        background-color: var(--dark-bg);
-        border: 1px solid var(--dark-font-color);
+        color: ${(props) => props.theme.font};
+        background-color: ${(props) => props.theme.bg};
+        border: 1px solid ${(props) => props.theme.font};
         transition: all 0.2s;
         margin-left: 10px;
       }
       .outline:hover {
-        color: var(--dark-bg);
-        background-color: var(--dark-font-color);
+        color: ${(props) => props.theme.bg};
+        background-color: ${(props) => props.theme.font};
       }
     }
   }

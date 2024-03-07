@@ -13,7 +13,7 @@ const Nav_Landing = () => {
 const Wrapper = styled.nav`
   width: 100vw;
   height: 10vh;
-  background-color: var(--dark-bg);
+  background-color: ${(props) => props.theme.bg};
   padding: 2vw 6vw 0 6vw;
   box-sizing: border-box;
   display: flex;

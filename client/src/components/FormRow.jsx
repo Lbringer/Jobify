@@ -1,5 +1,4 @@
 import styled from "styled-components";
-
 const FormRow = ({ type, name, labelText, defaultValue }) => {
   return (
     <Wrapper>
@@ -30,12 +29,13 @@ const Wrapper = styled.div`
     width: 100%;
     box-sizing: border-box;
     background: none;
-    border: 1px solid var(--dark-border-color);
+    border: 1px solid ${(props) => props.theme.accent};
     font-family: "Poppins", sans-serif;
     padding: 1rem 0.8rem 1rem 0.8rem;
     border-width: 0.1px;
-    color: var(--dark-font-color);
+    color: ${(props) => props.theme.font};
     border-radius: 8px;
+    font-weight: 500;
   }
 `;
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FormRow, Nav_Landing } from "../components";
-
 const Register = () => {
   return (
     <>
@@ -60,8 +59,8 @@ const Register = () => {
 const Wrapper = styled.section`
   width: 100vw;
   min-height: 90vh;
-  background-color: var(--dark-bg);
-  color: var(--dark-font-color);
+  background-color: ${(props) => props.theme.bg};
+  color: ${(props) => props.theme.font};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,9 +92,9 @@ const Wrapper = styled.section`
         padding: 1rem 0.3rem 0.8rem 0.3rem;
         border-radius: 8px;
         border: 0;
-        background-color: var(--dark-font-color);
+        background-color: ${(props) => props.theme.font};
         font-family: "Poppins", sans-serif;
-        color: var(--dark-bg);
+        color: ${(props) => props.theme.bg};
         font-weight: 600;
         cursor: pointer;
         margin-top: 20px;
@@ -105,9 +104,10 @@ const Wrapper = styled.section`
       margin-bottom: 70px;
       font-size: 0.8rem;
       .link {
-        color: var(--dark-font-color);
+        color: ${(props) => props.theme.font};
         margin-left: 5px;
       }
+      font-weight: 500;
     }
   }
 `;

@@ -19,20 +19,19 @@ const SideBar = () => {
 
 const Wrapper = styled.nav`
   height: 90vh;
-  background-color: var(--dark-bg);
+  background-color: ${(props) => props.theme.bg};
   width: 20vw;
   display: flex;
   flex-direction: column;
   padding: 0 5vw 5vw 5vw;
   box-sizing: border-box;
   .link {
-    color: var(--dark-border-color);
+    color: ${(props) => props.theme.menu};
     font-size: 0.85rem;
     margin-top: 3rem;
     text-decoration: none;
     display: flex;
     align-items: center;
-    font-weight: 500;
     span {
       margin-left: 1rem;
     }
@@ -40,8 +39,7 @@ const Wrapper = styled.nav`
   }
   .link:hover,
   a.active {
-    color: var(--dark-font-color);
-    font-weight: 400;
+    color: ${(props) => props.theme.font};
   }
 `;
 export default SideBar;
