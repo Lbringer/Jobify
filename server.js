@@ -3,13 +3,10 @@ dotenv.config();
 import express from "express";
 const app = express();
 import morgan from "morgan";
+import mongoose from "mongoose";
 
-//Local data
-import { nanoid } from "nanoid";
-let jobs = [
-  { id: nanoid(), company: "Human Holdings", position: "SDE" },
-  { id: nanoid(), company: "PWC", position: "Cloud Consultant" },
-];
+//Router
+import jobRouter from "./routes/jobRouter.js";
 
 //Middleware
 if (process.env.NODE_ENV === "development") {
@@ -19,7 +16,6 @@ if (process.env.NODE_ENV === "development") {
 app.use(express.json());
 
 //Routes
-
 //Test Routes
 app.get("/", (req, res) => {
   res.send("Hello world");
@@ -30,12 +26,28 @@ app.post("/", (req, res) => {
 });
 
 //Actual Routes
-app.get("/api/v1/jobs", (req, res) => {
-  res.status(200).json({ jobs });
+app.use("/api/v1/jobs", jobRouter);
+
+//Not found middle ware
+app.use("*", (req, res) => {
+  res.status(404).json({ message: "Not found" });
 });
 
-//Server listen config
-const PORT = process.env.PORT || 5100;
-app.listen(PORT, () => {
-  console.log(`Server running on ${PORT}`);
+//Server error middleware (has to be last)
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(500).json({ message: "Something went wrong" });
 });
+
+//Server listen and db connect config
+const PORT = process.env.PORT || 5100;
+
+try {
+  await mongoose.connect(process.env.MONGO_URL);
+  app.listen(PORT, () => {
+    console.log(`Server running on ${PORT}`);
+  });
+} catch (error) {
+  console.log(error);
+  process.exit(1);
+}
