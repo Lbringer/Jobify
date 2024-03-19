@@ -3,11 +3,14 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import express from "express";
 const app = express();
-import morgan from "morgan";
 import mongoose from "mongoose";
 
 //Router
 import jobRouter from "./routes/jobRouter.js";
+
+//Middleware import
+import morgan from "morgan";
+import errHandlerMiddleWare from "./middlewares/errHandlerMiddleWare.js";
 
 //Middleware
 if (process.env.NODE_ENV === "development") {
@@ -35,10 +38,7 @@ app.use("*", (req, res) => {
 });
 
 //Server error middleware (has to be last)
-app.use((err, req, res, next) => {
-  console.log(err);
-  res.status(500).json({ message: "Something went wrong" });
-});
+app.use(errHandlerMiddleWare);
 
 //Server listen and db connect config
 const PORT = process.env.PORT || 5100;
