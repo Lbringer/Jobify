@@ -19,17 +19,7 @@ if (process.env.NODE_ENV === "development") {
 }
 app.use(express.json());
 
-//Routes
-//Test Routes
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
-
-app.post("/", (req, res) => {
-  res.json({ message: "Data received", data: req.body });
-});
-
-//Actual Routes
+// Routes
 app.use("/api/v1/jobs", jobRouter);
 
 //Not found middle ware
