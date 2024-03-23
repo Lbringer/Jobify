@@ -7,6 +7,7 @@ import mongoose from "mongoose";
 
 //Router
 import jobRouter from "./routes/jobRouter.js";
+import authRouter from "./routes/authRouter.js";
 
 //Middleware import
 import morgan from "morgan";
@@ -21,6 +22,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/auth", authRouter);
 
 //Not found middle ware
 app.use("*", (req, res) => {
