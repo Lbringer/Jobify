@@ -61,7 +61,7 @@ const Wrapper = styled.nav`
       margin-left: 1rem;
       width: 5rem;
       padding: 0.5rem 0.3rem 0.5rem 0.3rem;
-      border-radius: 8px;
+      border-radius: 5px;
       border: 0;
       background-color: ${(props) => props.theme.font};
       font-family: "Poppins", sans-serif;
