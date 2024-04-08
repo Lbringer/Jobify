@@ -12,6 +12,8 @@ import authRouter from "./routes/authRouter.js";
 //Middleware import
 import morgan from "morgan";
 import errHandlerMiddleWare from "./middlewares/errHandlerMiddleWare.js";
+import { authenticateUser } from "./middlewares/authMiddleWare.js";
+import cookieParser from "cookie-parser";
 
 //Middleware
 if (process.env.NODE_ENV === "development") {
@@ -19,9 +21,10 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
+app.use(cookieParser());
 
 // Routes
-app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/auth", authRouter);
 
 //Not found middle ware
