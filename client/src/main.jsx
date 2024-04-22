@@ -5,6 +5,10 @@ import "./index.css";
 import store from "./redux/store.js";
 import { Provider } from "react-redux";
 
+fetch("/api/v1/test")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <App />
