@@ -1,12 +1,31 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Form, redirect, useNavigation, Link } from "react-router-dom";
 import { FormRow, Nav_Landing } from "../components";
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
+
+//Way to submit the form
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  try {
+    await customFetch.post("/auth/register", data);
+    toast.success("Registration successfull");
+    return redirect("/login");
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    return error;
+  }
+};
+
 const Register = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === "submitting";
   return (
     <>
       <Nav_Landing />
       <Wrapper>
-        <form action="#">
+        <Form method="post" action="#">
           <h4>
             Hi, <span>Welcome</span>
           </h4>
@@ -15,7 +34,7 @@ const Register = () => {
               type="text"
               name="name"
               labelText="Name"
-              defaultValue="Aditya Garimella"
+              defaultValue="Aditya"
             />
           </div>
           <div className="form-col">
@@ -23,13 +42,13 @@ const Register = () => {
               type="text"
               name="location"
               labelText="Location"
-              defaultValue="India"
+              defaultValue="Japan"
             />
             <FormRow
               type="email"
               name="email"
               labelText="Email"
-              defaultValue="g@gmail.com"
+              defaultValue="aditya@gmail.com"
             />
           </div>
           <div className="form-col">
@@ -37,11 +56,13 @@ const Register = () => {
               type="password"
               name="password"
               labelText="Password"
-              defaultValue="password"
+              defaultValue="secret123!"
             />
           </div>
           <div className="con">
-            <button type="submit">Submit</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Submit"}
+            </button>
           </div>
 
           <p>
@@ -50,7 +71,7 @@ const Register = () => {
               Login
             </Link>
           </p>
-        </form>
+        </Form>
       </Wrapper>
     </>
   );
