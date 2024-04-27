@@ -2,10 +2,17 @@ import React from "react";
 import styled from "styled-components";
 import Logo from "./Logo";
 import ChangeThemeBtn from "./ChangeThemeBtn";
-import { useSelector } from "react-redux";
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
-const Nav_Dashboard = () => {
-  const userName = useSelector((state) => state.user.name);
+const Nav_Dashboard = ({ user }) => {
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    await customFetch.get("/auth/logout");
+    toast.success("Logout successful");
+    navigate("/");
+  };
   return (
     <Wrapper>
       <div className="logoAndtitle">
@@ -14,12 +21,14 @@ const Nav_Dashboard = () => {
       </div>
       <div className="themeaAndlogout">
         <ChangeThemeBtn />
-        {userName == "" ? (
+        {!user ? (
           <button className="btn outline">Login</button>
         ) : (
           <>
-            <div className="name">{userName}</div>
-            <button className="btn">Logout</button>
+            <div className="name">{user.name}</div>
+            <button className="btn" onClick={handleLogout}>
+              Logout
+            </button>
           </>
         )}
       </div>
@@ -43,7 +52,7 @@ const Wrapper = styled.nav`
     h2 {
       margin: 0;
       color: ${(props) => props.theme.font};
-      margin-left: 14rem;
+      margin-left: 10rem;
       font-weight: 400;
     }
   }

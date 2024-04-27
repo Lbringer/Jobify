@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 import { lightCSS, darkCSS } from "../../utils/colors";
 
 const initialState = {
-  name: "Aditya",
   dark_theme: localStorage.getItem("dark_theme") == "true",
   css: localStorage.getItem("dark_theme") == "true" ? darkCSS : lightCSS,
 };

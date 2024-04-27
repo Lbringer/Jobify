@@ -1,13 +1,29 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Form, redirect, useNavigation, Link } from "react-router-dom";
 import { FormRow, Nav_Landing } from "../components";
-
+import customFetch from "../utils/customFetch";
+import { toast } from "react-toastify";
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  try {
+    await customFetch.post("/auth/login", data);
+    toast.success("Login successful");
+    return redirect("/dashboard");
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+    return error;
+  }
+};
 const Login = () => {
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state === "submitting";
   return (
     <>
       <Nav_Landing />
       <Wrapper>
-        <form action="#">
+        <Form method="post" action="#">
           <h4>
             Hi, <span>Welcome Back</span>
           </h4>
@@ -16,7 +32,7 @@ const Login = () => {
               type="email"
               name="email"
               labelText="Email"
-              defaultValue="g@gmail.com"
+              defaultValue="aditya@gmail.com"
             />
           </div>
           <div className="form-col">
@@ -24,11 +40,13 @@ const Login = () => {
               type="password"
               name="password"
               labelText="Password"
-              defaultValue="password"
+              defaultValue="secret123!"
             />
           </div>
           <div className="con">
-            <button type="submit">Login</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Login"}
+            </button>
           </div>
           <div className="con">
             <button type="button" className="tryBtn">
@@ -42,7 +60,7 @@ const Login = () => {
               Register
             </Link>
           </p>
-        </form>
+        </Form>
       </Wrapper>
     </>
   );
